@@ -5,7 +5,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Expense</title>
+<title>ExpenseManager</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -28,33 +28,32 @@ $(document).ready(function(){
 </head>
 <body class="container container-fluid">
 	<div id="add">
-		<h1 style="margin-left:450px" >Add Expense</h1>
+		<h1 style="margin-left:40%" >Add Expense</h1>
 		<br><br>
 		<form action="ExpenseController" method="GET">
 			<table class="table">
 				<tr >
-					<td>Name </td>
+					<td>Enter Name of the Expense </td>
 					<td><input type="text" placeholder="Expense Name" name="name"></td>
 				</tr>
 				<tr >
-					<td>Description</td>
+					<td>Enter Description</td>
 					<td><input type="text" placeholder="Expense Name" name="descp"></td>
 				</tr>
 				<tr >
-					<td>Cost</td>
+					<td>Enter Cost</td>
 					<td><input type="text" placeholder="Expense Cost" name="cost"></td>
 				</tr>
 				
 
 				
 			</table>
-		<div>
-		<button class="btn btn-info" type="submit" name="addExpense" value="Add">ADD</button>
-		<button class="btn btn-danger" type="submit" formmethod="post" name="showExpense" value="Show">SHOW</button>
+		<div style="width:100%;text-align: center">
+		<button class="btn btn-primary" style="width:150px" type="submit" name="addExpense" value="Add">ADD</button>
 		</div>
 		</form>
 	</div>
-    <div class="mt-3">
+    <div class="mt-3" style="text-align: center">
 		<h1>All Expenses</h1>
 		<br>
 		<table class="table table-striped">
@@ -68,6 +67,7 @@ $(document).ready(function(){
 				</tr>
 			</thead>
 			<tbody>
+			
 				<c:forEach var="exp" items="${ExpenseList}">
 					<tr>
 						<th scope="row">${exp.id}</th>
@@ -80,6 +80,8 @@ $(document).ready(function(){
 
 			</tbody>
 		</table>
+		</div>
+			<div>
 		<form name="formid" action="ExpenseController" method="POST">
 			<br>Select ID of Expense for update or delete:  <select class="browser-default custom-select" name="id" onchange="document.getElementById('butn').click()">
 			    <option value="">--Select one--</option>
